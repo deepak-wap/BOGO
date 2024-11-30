@@ -1,5 +1,9 @@
 // Update the 'active' state for the selected option
 const setActiveOption = (options, selectedOption) => {
+  const price = selectedOption.querySelector(".usd-text"); // Get Pice element of selected options
+  const total = document.querySelector(".total-text"); // Get Total element
+
+  total.innerHTML = "Total: "+ price.innerHTML // update total ammount of selected option
   options.forEach((option) => option.classList.remove("active")); // Remove active class from all options
   selectedOption.classList.add("active"); // Add active class to the selected option
 };
@@ -9,6 +13,11 @@ const setInitialOption = (options, index) => {
   const targetOption = options[index];
   if (!targetOption) return; // Exit if the index is out of bounds
 
+  const price = targetOption.querySelector(".usd-text"); // Get Pice element of selected options
+  const total = document.querySelector(".total-text");  // Get Total element
+
+  total.innerHTML = "Total: "+ price.innerHTML // update total ammount of selected option
+  
   const radio = targetOption.querySelector("input[type='radio']");
   if (!radio) return; // Exit if the radio button is not found
 
